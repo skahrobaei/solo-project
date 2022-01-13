@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
+
+body {
+  font-family: 'Open Sans Condensed', sans-serif;
+  display:flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  align-items: center;
+}
+table{
+  width: 100%;
+  /* overflow: auto; */
+}
+/* .welcome, h1 {
+  background-color: brown;
+  border: 1px solid cornflowerblue;
+  text-align:center;
+} */
+
+td {
+  text-align:left
+}
+
+td, th {
+  border: 0.1px solid black;
+  padding: 10px;
+}
+th {
+  background-color: cornflowerblue;
+  color:azure
+}
+
+tr:hover {background-color: #ddd}
+
+.search {
+  height: 20px;
+  width: 300px;
+  border-radius: 5px;
+  border: 0.1px solid gray 
+}
+

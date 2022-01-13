@@ -11,6 +11,7 @@ class DogsRow extends Component {
         <td>{dog.birth_date}</td>
         <td>{dog.type}</td>
         <td>{dog.date}</td>
+        <td>{dog.time}</td>
         <td>{dog.est_duration}</td>
         <td>{dog.facility_name}</td>
         <td>{dog.address}</td>
@@ -71,12 +72,12 @@ class DogsTable extends Component {
             <th>Type</th>
             <th>Date</th>
             <th>Time</th>
-            <th>Duration in minutes</th>
+            <th>Duration (min)</th>
             <th>Name</th>
             <th>Address</th>
             <th>City</th>
             <th>State</th>
-            <th>Zip code</th>
+            <th>Zip</th>
             <th>Phone</th>
             <th>Email</th>
           </tr>
@@ -106,6 +107,7 @@ class SearchBar extends Component {
     return (
       <form>
         <input
+          class="search"
           type="text"
           placeholder="Search your desired breed to match..."
           value={this.props.filterText}
@@ -139,7 +141,7 @@ class CanineWalkTable extends Component {
   }
 
   componentDidMount() {
-    fetch('/dogs')
+    fetch('/dogs/')
       .then(dogs => dogs.json())
       .then((dogs) => {
         if (!Array.isArray(dogs)) dogs = [];
