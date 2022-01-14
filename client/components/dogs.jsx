@@ -27,12 +27,6 @@ class DogsRow extends Component {
 
 class DogsTable extends Component {
 
-  dateInPast(firstDate, secondDate) {
-    if (firstDate.setHours(0, 0) <= secondDate.setHours(0, 0)) return true;
-    return false;
-  }
-
-
   render() {
     const filterText = this.props.filterText;
     const currentEventOnly = this.props.currentEventOnly;
@@ -44,7 +38,7 @@ class DogsTable extends Component {
       if (dog.breed.indexOf(filterText) === -1) {
         return;
       }
-      if (currentEventOnly && dateInPast(new Date(dog.date), new Date())) {
+      if (currentEventOnly && (Date.parse(dog.date) - Date.parse(new Date()) < 0)) { 
         return;
       }
       rows.push(
@@ -72,7 +66,7 @@ class DogsTable extends Component {
             <th>Type</th>
             <th>Date</th>
             <th>Time</th>
-            <th>Duration (min)</th>
+            <th>Duration (mins)</th>
             <th>Name</th>
             <th>Address</th>
             <th>City</th>
@@ -107,7 +101,7 @@ class SearchBar extends Component {
     return (
       <form>
         <input
-          class="search"
+          className="search"
           type="text"
           placeholder="Search your desired breed to match..."
           value={this.props.filterText}
